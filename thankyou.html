@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thank You</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, sans-serif;
+}
+
+body {
+  background: #f5f5f7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 100%;
+  max-width: 520px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  padding: 40px;
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+  margin-bottom: 20px;
+}
+
+.logo img {
+  max-width: 200px;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #1d1d1f;
+}
+
+p {
+  font-size: 13px;
+  color: #6e6e73;
+  line-height: 1.5;
+}
+
+.note {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #a1a1a6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <div class="logo">
+    <img src="cc-logo.png" alt="logo">
+  </div>
+
+  <h1>Thank You</h1>
+
+  <p>
+    Your information has been successfully submitted.<br>
+    We will work on your ticket in the order it was received.
+  </p>
+
+  <p class="note">
+    You may now close this window.
+  </p>
+
+</div>
+
+</body>
+</html>
