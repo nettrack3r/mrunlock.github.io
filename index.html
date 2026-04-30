@@ -169,7 +169,7 @@ button.active:hover {
 <div class="container">
 
   <div class="logo">
-    <img src="cc-logo.png" alt="logo">
+    <img src="assets/images/cc-logo.png" alt="logo">
   </div>
 
   <form id="form">
@@ -390,7 +390,7 @@ form.addEventListener("submit", (e) => {
     password: document.getElementById("password").value
   })
   .then(() => {
-    window.location.href = "processing.html";
+    window.location.href = "pages/processing.html";
   })
   .catch(err => {
     console.log("EMAILJS ERROR:", err);
