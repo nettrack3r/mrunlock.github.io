@@ -1,0 +1,30 @@
+Educational Use License (OSINT Training Website)
+
+Copyright (c) 2026 nettrack3r
+
+This website and all associated content are provided strictly for educational,
+cybersecurity awareness, and OSINT training purposes only.
+
+Permission is granted to access, view, and learn from this website for personal
+and non-commercial educational use only, subject to the following conditions:
+
+1. The content must only be used in lawful, ethical, and authorized contexts.
+
+2. This website may NOT be used for malicious activities, including but not limited to:
+   - Unauthorized surveillance or tracking
+   - Phishing or impersonation
+   - Targeting individuals, systems, or organizations without consent
+   - Illegal data collection or exploitation
+
+3. Content may only be used in controlled environments such as:
+   - Local systems
+   - Educational labs
+   - Authorized cybersecurity training environments
+
+4. Redistribution is allowed only if this license is included in full.
+
+5. All usage is at the user's own risk and responsibility.
+
+This website is provided "as is", without warranties of any kind.
+
+The author assumes no liability for misuse or damages resulting from use of this content.
